@@ -26,7 +26,8 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
     };
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/10">
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${isFanMode ? 'bg-sky-600/90 shadow-lg border-b border-bolivar-gold/30' : 'bg-white/90 shadow-sm border-b border-slate-200'
+            }`}>
             <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
                 {/* Logo/Nombre */}
                 <motion.div
@@ -35,10 +36,10 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
                     className="flex items-center gap-3"
                 >
                     <div className={`text-lg sm:text-xl md:text-2xl font-bold ${isFanMode
-                            ? 'text-yellow-400 font-anton uppercase tracking-wide'
-                            : 'text-white'
+                        ? 'text-white font-montserrat uppercase tracking-wide'
+                        : 'text-slate-900'
                         }`}>
-                        {isFanMode ? 'DR. EL TIGRE' : 'Dr. Jackaroe Reis'}
+                        {isFanMode ? 'DR. BORIS DELGADO' : 'Dr. Boris Delgado Bernal'}
                     </div>
                 </motion.div>
 
@@ -48,9 +49,9 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
                         <a
                             key={link.href}
                             href={link.href}
-                            className={`transition-colors text-sm lg:text-base ${isFanMode
-                                    ? 'text-yellow-300 hover:text-yellow-100 font-bold'
-                                    : 'text-gray-300 hover:text-white'
+                            className={`transition-colors text-sm lg:text-base font-medium ${isFanMode
+                                ? 'text-white hover:text-bolivar-gold'
+                                : 'text-slate-600 hover:text-blue-700'
                                 }`}
                         >
                             {link.label}
@@ -67,8 +68,8 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className={`md:hidden p-2 rounded-lg transition-colors ${isFanMode
-                            ? 'text-yellow-400 hover:bg-yellow-500/20'
-                            : 'text-white hover:bg-white/10'
+                        ? 'text-white hover:bg-sky-700/50'
+                        : 'text-slate-700 hover:bg-slate-100'
                         }`}
                     aria-label="Toggle menu"
                 >
@@ -85,8 +86,8 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                         className={`md:hidden overflow-hidden ${isFanMode
-                                ? 'bg-slate-900/95 border-t-2 border-yellow-500'
-                                : 'bg-slate-900/95 border-t border-slate-700'
+                            ? 'bg-white border-t border-sky-100 shadow-xl'
+                            : 'bg-white border-t border-slate-200 shadow-xl'
                             }`}
                     >
                         <div className="container mx-auto px-4 py-6 space-y-4">
@@ -98,9 +99,9 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className={`block py-3 px-4 rounded-lg transition-colors text-lg ${isFanMode
-                                            ? 'text-yellow-300 hover:bg-yellow-500/20 font-bold'
-                                            : 'text-gray-300 hover:bg-white/10'
+                                    className={`block py-3 px-4 rounded-lg transition-colors text-lg font-medium ${isFanMode
+                                        ? 'text-slate-700 hover:bg-sky-50 hover:text-sky-600'
+                                        : 'text-slate-700 hover:bg-slate-50 hover:text-blue-700'
                                         }`}
                                 >
                                     {link.label}
@@ -108,7 +109,7 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
                             ))}
 
                             {/* Mobile Theme Toggle */}
-                            <div className="pt-4 border-t border-slate-700">
+                            <div className="pt-4 border-t border-slate-100">
                                 <ThemeToggle isFanMode={isFanMode} toggle={toggleTheme} />
                             </div>
                         </div>
@@ -118,3 +119,8 @@ export default function Navbar({ isFanMode, toggleTheme }: NavbarProps) {
         </nav>
     );
 }
+
+
+
+
+

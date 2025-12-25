@@ -37,7 +37,7 @@ export default function Trayectoria({ isFanMode }: TrayectoriaProps) {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isFanMode ? 'text-black' : 'text-white'}`}
+                    className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isFanMode ? 'text-white' : 'text-white'}`}
                 >
                     {isFanMode ? 'TRAYECTORIA DE CAMPEÓN' : 'Trayectoria Profesional'}
                 </motion.h2>
@@ -51,18 +51,18 @@ export default function Trayectoria({ isFanMode }: TrayectoriaProps) {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                             className={`relative group p-8 rounded-xl border transition-all duration-300 hover:shadow-2xl flex flex-col md:flex-row gap-6 md:items-center ${isFanMode
-                                    ? "bg-black border-yellow-500 shadow-yellow-500/20"
+                                    ? "bg-black border-sky-500 shadow-sky-500/20"
                                     : "bg-transparent border-white/10 hover:bg-white/5"
                                 }`}
                         >
                             <div className="flex-shrink-0">
-                                <span className={`text-5xl font-bold tracking-tighter ${isFanMode ? 'text-yellow-500' : 'text-white'}`}>
+                                <span className={`text-5xl font-bold tracking-tighter ${isFanMode ? 'text-sky-500' : 'text-white'}`}>
                                     {item.id}
                                 </span>
                             </div>
 
                             <div className="flex-grow">
-                                <h3 className={`text-2xl font-bold mb-2 ${isFanMode ? 'text-yellow-500' : 'text-white'}`}>
+                                <h3 className={`text-2xl font-bold mb-2 ${isFanMode ? 'text-sky-500' : 'text-white'}`}>
                                     {item.title}
                                 </h3>
                                 <p className={`text-lg leading-relaxed ${isFanMode ? 'text-gray-300' : 'text-white/80'}`}>
@@ -72,7 +72,7 @@ export default function Trayectoria({ isFanMode }: TrayectoriaProps) {
 
                             {/* Decorative gradient for Fan Mode */}
                             {isFanMode && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
                             )}
                         </motion.div>
                     ))}
@@ -81,3 +81,8 @@ export default function Trayectoria({ isFanMode }: TrayectoriaProps) {
         </section>
     );
 }
+
+
+
+
+

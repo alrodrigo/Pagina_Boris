@@ -11,33 +11,30 @@ export default function Services({ isFanMode }: ServicesProps) {
     const services = [
         {
             icon: Activity,
-            title: "Cirugía Bariátrica",
-            description: "Control de peso y mejora metabólica con técnicas mínimamente invasivas.",
+            title: "Medicina General",
+            description: "Atención médica integral y diagnóstico preciso para diversas patologías.",
         },
         {
             icon: Scissors,
-            title: "Cirugía Digestiva",
-            description: "Tratamiento experto para patologías de estómago, colon y vesícula.",
+            title: "Cirugía Laparoscópica",
+            description: "Procedimientos quirúrgicos mínimamente invasivos con rápida recuperación.",
         },
         {
             icon: HeartPulse,
-            title: "Laparoscopía Avanzada",
-            description: "Cirugía de alta complejidad con incisiones mínimas y rápida recuperación.",
+            title: "Gerencia Hospitalaria",
+            description: "Administración y gestión de servicios de salud con excelencia y eficiencia.",
         },
     ];
 
     return (
-        <section className="py-12 sm:py-16 md:py-24 bg-primary-dark relative overflow-hidden">
+        <section id="servicios" className="py-12 sm:py-14 md:py-16 relative overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 ${isFanMode
-                        ? 'text-white font-anton uppercase tracking-widest'
-                        : 'text-white'
-                        }`}
-                    style={isFanMode ? { textShadow: '0 0 20px rgba(234, 179, 8, 0.6), 3px 3px 6px rgba(0,0,0,0.8)' } : {}}
+                    className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 font-montserrat tracking-tight ${isFanMode ? 'text-white' : 'text-slate-900'}`}
+                    style={isFanMode ? { textShadow: '0 4px 12px rgba(0, 0, 0, 0.6)' } : {}}
                 >
                     {isFanMode ? 'SERVICIOS DEL CAMPEÓN' : 'Tratamientos Especializados'}
                 </motion.h2>
@@ -50,46 +47,54 @@ export default function Services({ isFanMode }: ServicesProps) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            whileHover={{ y: -10 }}
-                            className={`group p-8 rounded-2xl transition-all duration-300 ${isFanMode
-                                ? 'bg-slate-900/80 backdrop-blur-sm border-2 border-yellow-500 shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] transform hover:rotate-1'
-                                : 'bg-slate-800/50 backdrop-blur-sm border border-slate-700 shadow-xl hover:shadow-2xl hover:border-blue-500/50'
+                            whileHover={{ y: -10, scale: 1.02 }}
+                            className={`group relative p-8 rounded-2xl transition-all duration-500 overflow-hidden ${isFanMode
+                                ? "bg-white/95 backdrop-blur-sm border-2 border-bolivar-celeste shadow-xl shadow-bolivar-celeste/20 hover:shadow-2xl hover:shadow-bolivar-gold/30 hover:border-bolivar-gold hover:-translate-y-2"
+                                : "bg-white border border-slate-200 shadow-lg hover:shadow-xl hover:border-blue-200 hover:-translate-y-1"
                                 }`}
                         >
+                            {/* Número decorativo de fondo */}
+                            {/* Número decorativo de fondo */}
+                            <div className={`absolute top-4 right-4 text-9xl font-bold opacity-5 select-none ${isFanMode ? 'text-sky-900' : 'text-slate-900'}`}>
+                                {String(index + 1).padStart(2, '0')}
+                            </div>
+
+                            {/* Shine effect */}
+                            <div
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"
+                                style={{ transform: 'skewX(-20deg)' }}
+                            />
+                            {/* Icono */}
                             {/* Icono */}
                             <motion.div
-                                className="mb-6"
+                                className="mb-6 relative z-10"
                                 whileHover={{ scale: 1.15, rotate: 5 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <service.icon
                                     className={`w-16 h-16 ${isFanMode
-                                        ? 'text-yellow-500'
-                                        : 'text-blue-400'
+                                        ? 'text-sky-500'
+                                        : 'text-academy-blue'
                                         }`}
                                     strokeWidth={1.5}
                                 />
                             </motion.div>
 
                             {/* Título */}
-                            <h3 className={`text-2xl font-bold mb-4 ${isFanMode
-                                ? 'text-yellow-400 font-anton uppercase tracking-wide'
-                                : 'text-white'
+                            <h3 className={`text-2xl font-bold mb-4 relative z-10 text-slate-900 ${isFanMode ? 'font-montserrat uppercase tracking-wide' : ''
                                 }`}>
                                 {service.title}
                             </h3>
 
                             {/* Descripción */}
-                            <p className={`text-base leading-relaxed ${isFanMode
-                                ? 'text-gray-300'
-                                : 'text-gray-400'
+                            <p className={`text-base leading-relaxed relative z-10 text-slate-600
                                 }`}>
                                 {service.description}
                             </p>
 
                             {/* Línea decorativa inferior */}
                             <div className={`mt-6 h-1 w-16 rounded-full transition-all duration-300 ${isFanMode
-                                ? 'bg-yellow-500 group-hover:w-full'
+                                ? 'bg-sky-500 group-hover:w-full'
                                 : 'bg-blue-500 group-hover:w-full'
                                 }`} />
                         </motion.div>
@@ -99,3 +104,8 @@ export default function Services({ isFanMode }: ServicesProps) {
         </section>
     );
 }
+
+
+
+
+

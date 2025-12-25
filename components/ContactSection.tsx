@@ -20,13 +20,13 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
             number: "02",
             icon: ClipboardList,
             title: "Estrategia Táctica",
-            description: "Evaluación clínica completa en Hospital Corea o Unifranz."
+            description: "Evaluación clínica completa en Caja de Salud de Caminos."
         },
         {
             number: "03",
             icon: Trophy,
             title: "Victoria y Salud",
-            description: "Protocolos quirúrgicos y de recuperación de vanguardia."
+            description: "Atención médica de calidad y gestión hospitalaria de excelencia."
         }
     ] : [
         {
@@ -39,46 +39,45 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
             number: "02",
             icon: ClipboardCheck,
             title: "Diagnóstico Preciso",
-            description: "Evaluación clínica completa en Hospital Corea o Unifranz."
+            description: "Evaluación clínica completa en Caja de Salud de Caminos."
         },
         {
             number: "03",
             icon: Award,
             title: "Tratamiento Integral",
-            description: "Protocolos quirúrgicos y de recuperación de vanguardia."
+            description: "Atención médica profesional y gestión hospitalaria de excelencia."
         }
     ];
 
     const locations = [
         {
-            name: "Hospital Municipal Modelo Corea",
-            location: "El Alto",
-            schedule: "Lunes - Miércoles",
-            mapUrl: "https://maps.google.com/?q=Hospital+Municipal+Modelo+Corea+El+Alto"
+            name: "Hospital N°1 Obrajes",
+            location: "La Paz - Obrajes",
+            schedule: "Lunes - Viernes",
+            mapUrl: "https://maps.google.com/?q=Hospital+Obrajes+Caja+de+Salud+de+Caminos+La+Paz"
         },
         {
-            name: "Clínica Unifranz",
-            location: "La Paz",
-            schedule: "Martes - Jueves",
-            mapUrl: "https://maps.google.com/?q=Clinica+Unifranz+La+Paz"
+            name: "Caja de Salud de Caminos",
+            location: "La Paz - Oficina Central",
+            schedule: "Lunes - Viernes",
+            mapUrl: "https://maps.google.com/?q=Caja+de+Salud+de+Caminos+La+Paz"
         }
     ];
 
     return (
-        <footer className="bg-primary-dark relative overflow-hidden">
+        <footer id="contacto" className={`relative overflow-hidden border-t transition-colors duration-700 ${isFanMode ? 'bg-gradient-to-br from-sky-600 via-bolivar-celeste to-sky-700 border-bolivar-gold' : 'bg-white border-slate-200'}`}>
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-
                 {/* PARTE 1: El Proceso */}
-                <section className="py-12 sm:py-16 md:py-20 border-b border-slate-800">
+                <section className={`py-12 sm:py-16 md:py-20 ${isFanMode ? 'border-b border-white/20' : 'border-b border-slate-200'}`}>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 ${isFanMode
-                            ? 'text-white font-anton uppercase tracking-widest'
-                            : 'text-white'
+                            ? 'text-white font-montserrat uppercase tracking-wide'
+                            : 'text-slate-900'
                             }`}
-                        style={isFanMode ? { textShadow: '0 0 20px rgba(234, 179, 8, 0.6), 3px 3px 6px rgba(0,0,0,0.8)' } : {}}
+                        style={isFanMode ? { textShadow: '0 2px 8px rgba(0,0,0,0.3)' } : {}}
                     >
                         {isFanMode ? 'TU CAMINO A LA VICTORIA' : 'Tu camino hacia la recuperación'}
                     </motion.h2>
@@ -93,150 +92,67 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
                                 transition={{ delay: index * 0.2 }}
                                 className="relative"
                             >
-                                {/* Número grande con gradiente */}
-                                <div className={`text-6xl sm:text-7xl md:text-8xl font-bold mb-4 ${isFanMode
-                                    ? 'text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-yellow-600 font-anton'
-                                    : 'text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-blue-600'
+                                {/* Número grande */}
+                                <div className={`text-6xl sm:text-7xl md:text-8xl font-bold mb-4 opacity-[0.2] select-none ${isFanMode ? 'text-white/40' : 'text-slate-300'
                                     }`}>
                                     {step.number}
                                 </div>
 
-                                {/* Icono */}
-                                <div className="mb-6">
-                                    <step.icon
-                                        className={`w-12 h-12 ${isFanMode
-                                            ? 'text-yellow-500'
-                                            : 'text-blue-400'
-                                            }`}
-                                        strokeWidth={1.5}
-                                    />
+                                <div className="absolute top-12 left-0 right-0 text-center">
+                                    <div className="flex justify-center mb-4">
+                                        <step.icon className={`w-10 h-10 ${isFanMode ? 'text-bolivar-gold' : 'text-blue-600'}`} />
+                                    </div>
+                                    <h3 className={`text-xl font-bold mb-2 ${isFanMode ? 'text-white' : 'text-slate-900'}`}>
+                                        {step.title}
+                                    </h3>
+                                    <p className={`text-sm max-w-[200px] mx-auto ${isFanMode ? 'text-white/90' : 'text-slate-700'}`}>
+                                        {step.description}
+                                    </p>
                                 </div>
-
-                                {/* Título */}
-                                <h3 className={`text-2xl font-bold mb-3 ${isFanMode
-                                    ? 'text-yellow-400 font-anton uppercase'
-                                    : 'text-white'
-                                    }`}>
-                                    {step.title}
-                                </h3>
-
-                                {/* Descripción */}
-                                <p className={`text-base leading-relaxed ${isFanMode
-                                    ? 'text-gray-300'
-                                    : 'text-gray-400'
-                                    }`}>
-                                    {step.description}
-                                </p>
                             </motion.div>
                         ))}
                     </div>
                 </section>
 
-                {/* PARTE 2: Tarjetas de Ubicación */}
-                <section className="py-20 border-b border-slate-800">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {locations.map((location, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index === 0 ? -30 : 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className={`p-8 rounded-2xl ${isFanMode
-                                    ? 'bg-slate-900/80 border-2 border-yellow-500/50'
-                                    : 'bg-slate-800/50 backdrop-blur-sm border border-slate-700'
-                                    }`}
-                            >
-                                <h3 className={`text-2xl font-bold mb-4 ${isFanMode
-                                    ? 'text-yellow-400 font-anton uppercase'
-                                    : 'text-white'
-                                    }`}>
-                                    {location.name}
-                                </h3>
-
-                                <div className="space-y-3 mb-6">
-                                    <div className="flex items-center gap-3">
-                                        <MapPin className={`w-5 h-5 ${isFanMode ? 'text-yellow-500' : 'text-blue-400'}`} />
-                                        <span className="text-gray-300">{location.location}</span>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <Clock className={`w-5 h-5 ${isFanMode ? 'text-yellow-500' : 'text-blue-400'}`} />
-                                        <span className="text-gray-300">{location.schedule}</span>
-                                    </div>
-                                </div>
-
-                                <a
-                                    href={location.mapUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all ${isFanMode
-                                        ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500 hover:bg-yellow-500 hover:text-black'
-                                        : 'bg-blue-500/20 text-blue-400 border border-blue-500 hover:bg-blue-500 hover:text-white'
-                                        }`}
-                                >
-                                    <MapPin className="w-4 h-4" />
-                                    Ver en Mapa
-                                </a>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* PARTE 3: Gran Botón CTA */}
-                <section className="py-20">
+                {/* PARTE 2: CTA Final */}
+                <section className="py-20 text-center relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className={`text-center p-12 rounded-3xl ${isFanMode
-                            ? 'bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 border-2 border-yellow-500'
-                            : 'bg-gradient-to-br from-blue-500/20 to-purple-500/10 border border-blue-500/30'
-                            }`}
+                        className={`p-12 rounded-3xl shadow-xl max-w-4xl mx-auto ${isFanMode ? 'bg-yellow-500 border-2 border-white' : 'bg-white border border-slate-100'}`}
                     >
-                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isFanMode
-                            ? 'text-white font-anton uppercase tracking-wide'
-                            : 'text-white'
-                            }`}>
-                            {isFanMode ? '¡JUGUEMOS EN EQUIPO POR TU SALUD!' : '¿Listo para agendar?'}
+                        <h2 className={`text-3xl sm:text-4xl font-bold mb-8 font-montserrat tracking-tight ${isFanMode ? 'text-slate-900' : 'text-slate-900'}`}>
+                            {isFanMode ? '¡AGENDA TU CITA AHORA!' : 'Agenda tu Consulta'}
                         </h2>
 
                         <motion.a
-                            href="https://wa.me/59177777777"
+                            href="https://wa.me/59175886162"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            animate={{
-                                boxShadow: isFanMode
-                                    ? ['8px 8px 0px 0px rgba(0,0,0,1)', '12px 12px 0px 0px rgba(0,0,0,1)', '8px 8px 0px 0px rgba(0,0,0,1)']
-                                    : ['0 20px 60px rgba(59, 130, 246, 0.3)', '0 20px 80px rgba(59, 130, 246, 0.5)', '0 20px 60px rgba(59, 130, 246, 0.3)']
-                            }}
-                            transition={{
-                                boxShadow: {
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }
-                            }}
-                            className={`inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 rounded-full text-base sm:text-lg md:text-xl font-bold transition-all ${isFanMode
-                                ? 'bg-yellow-500 text-black border-2 border-black hover:translate-x-[4px] hover:translate-y-[4px]'
-                                : 'bg-blue-600 text-white hover:bg-blue-500'
+                            className={`inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all ${isFanMode
+                                ? 'bg-white text-sky-900 border-2 border-white hover:bg-sky-900 hover:text-white hover:border-sky-900'
+                                : 'bg-blue-50 text-blue-900 border-2 border-blue-600 hover:bg-blue-100'
                                 }`}
                         >
-                            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                            <span className="whitespace-nowrap">{isFanMode ? 'Contactar al Dr. Tigre' : 'WhatsApp Profesional'}</span>
+                            <MessageCircle className="w-6 h-6" />
+                            <span>{isFanMode ? 'Contactar por WhatsApp' : 'Agendar Cita'}</span>
                         </motion.a>
                     </motion.div>
                 </section>
 
                 {/* Copyright */}
-                <div className="py-8 border-t border-slate-800">
-                    <p className={`text-center text-sm ${isFanMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                        © 2025 Dr. Jackaroe Reis - La Paz, Bolivia
+                <div className={`py-8 ${isFanMode ? 'border-t border-white/20' : 'border-t border-slate-200'}`}>
+                    <p className={`text-center text-sm ${isFanMode ? 'text-white/80' : 'text-slate-500'}`}>
+                        © 2025 Dr. Boris Delgado Bernal - La Paz, Bolivia
+                    </p>
+                    <p className={`mt-2 text-xs text-center ${isFanMode ? 'text-white/60' : 'text-slate-400'}`}>
+                        Desarrollado con excelencia médica y pasión deportiva.
                     </p>
                 </div>
-
             </div>
-        </footer>
+        </footer >
     );
 }

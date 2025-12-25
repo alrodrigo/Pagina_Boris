@@ -11,7 +11,7 @@ interface ThemeToggleProps {
 export default function ThemeToggle({ isFanMode, toggle }: ThemeToggleProps) {
     return (
         <div
-            className={`relative flex w-24 h-12 rounded-full p-1 cursor-pointer transition-colors duration-500 ${isFanMode ? 'bg-gray-900 border border-yellow-500' : 'bg-gray-200 border border-blue-200'}`}
+            className={`relative flex w-24 h-12 rounded-full p-1 cursor-pointer transition-colors duration-500 ${isFanMode ? 'bg-gray-900 border border-sky-500' : 'bg-gray-200 border border-blue-200'}`}
             onClick={toggle}
         >
             <motion.div
@@ -23,7 +23,7 @@ export default function ThemeToggle({ isFanMode, toggle }: ThemeToggleProps) {
                 }}
             >
                 {isFanMode ? (
-                    <Trophy className="w-6 h-6 text-yellow-500" />
+                    <Trophy className="w-6 h-6 text-sky-500" />
                 ) : (
                     <Stethoscope className="w-6 h-6 text-blue-600" />
                 )}
@@ -32,8 +32,13 @@ export default function ThemeToggle({ isFanMode, toggle }: ThemeToggleProps) {
             {/* Background Icons/Text for context (Optional, simple indicators) */}
             <div className="flex w-full justify-between items-center px-2 text-xs font-bold">
                 <span className={`transition-opacity duration-300 ${isFanMode ? 'opacity-50 text-gray-400' : 'opacity-100 text-blue-800'}`}>Dr.</span>
-                <span className={`transition-opacity duration-300 ${isFanMode ? 'opacity-100 text-yellow-500' : 'opacity-50 text-gray-400'}`}>Fan</span>
+                <span className={`transition-opacity duration-300 ${isFanMode ? 'opacity-100 text-sky-500' : 'opacity-50 text-gray-400'}`}>Fan</span>
             </div>
         </div>
     );
 }
+
+
+
+
+
