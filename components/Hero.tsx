@@ -94,7 +94,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                                         className="inline-block bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent"
                                     >ACADEMIA</span> VIBRA!</>
                                 ) : (
-                                    <>Dr. Boris <span className="bg-gradient-to-r from-blue-700 to-indigo-800 text-transparent bg-clip-text">Delgado Bernal</span></>
+                                    <><span className="text-slate-900">Dr. Boris</span> <span className="bg-gradient-to-r from-blue-700 to-indigo-800 text-transparent bg-clip-text">Delgado Bernal</span></>
                                 )}
                             </motion.h1>
 
