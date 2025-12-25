@@ -58,7 +58,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                     className={`font-montserrat uppercase select-none pointer-events-none ${isFanMode ? 'text-sky-900/5' : 'text-slate-900/5'
                         }`}
                     style={{
-                        fontSize: 'clamp(200px, 30vw, 500px)',
+                        fontSize: 'clamp(100px, 20vw, 500px)', // Reduced min size for mobile
                         lineHeight: 0.8,
                         letterSpacing: '-0.05em',
                         WebkitTextStroke: isFanMode ? '3px rgba(234, 179, 8, 0.2)' : '2px rgba(59, 130, 246, 0.05)',
@@ -73,7 +73,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[60vh] py-8 lg:py-12">
 
                     {/* CAPA 4: Información flotante (Izquierda) */}
-                    <div className="relative z-40 order-2 lg:order-1 space-y-6 lg:space-y-8 text-center lg:text-left">
+                    <div className="relative z-40 order-2 lg:order-1 space-y-6 lg:space-y-8 text-center lg:text-left mt-[-50px] lg:mt-0"> {/* Negative margin to pull text up on mobile */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.7 }}
-                                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 lg:mb-6 leading-[0.9] font-montserrat tracking-tight ${isFanMode ? 'text-white' : 'text-academy-main'}`}
+                                className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 lg:mb-6 leading-[1.1] lg:leading-[0.9] font-montserrat tracking-tight ${isFanMode ? 'text-white' : 'text-academy-main'}`}
                                 style={isFanMode ? {
                                     textShadow: '0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)'
                                 } : {}}
@@ -103,12 +103,12 @@ export default function Hero({ isFanMode }: HeroProps) {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.4, duration: 0.7 }}
-                                className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 lg:mb-8 leading-relaxed font-medium ${isFanMode ? 'text-white' : 'text-slate-700'}`}
+                                className={`text-base sm:text-xl md:text-2xl lg:text-3xl mb-6 lg:mb-8 leading-relaxed font-medium ${isFanMode ? 'text-white' : 'text-slate-700'}`}
                                 style={isFanMode ? {
                                     textShadow: '0 2px 6px rgba(0, 0, 0, 0.5)',
                                     backgroundColor: 'rgba(0, 0, 0, 0.25)',
-                                    padding: '0.75rem 1.5rem',
-                                    borderRadius: '0.75rem',
+                                    padding: '0.5rem 1rem',
+                                    borderRadius: '0.5rem',
                                     display: 'inline-block'
                                 } : {}}
                             >
@@ -122,7 +122,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.5 }}
-                            className="flex flex-wrap gap-3 lg:gap-4 justify-center lg:justify-start"
+                            className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4 justify-center lg:justify-start"
                         >
                             {content.badges.map((badge, index) => (
                                 <motion.span
@@ -131,7 +131,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.6 + index * 0.1 }}
                                     whileHover={{ scale: 1.05, y: -2 }}
-                                    className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${isFanMode
+                                    className={`inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${isFanMode
                                         ? 'bg-white text-sky-900 border-2 border-white hover:bg-bolivar-gold hover:text-sky-900 hover:border-bolivar-gold shadow-lg'
                                         : 'bg-blue-50 text-blue-900 border-2 border-blue-200 hover:bg-blue-100 hover:border-blue-400'
                                         }`}
@@ -147,14 +147,14 @@ export default function Hero({ isFanMode }: HeroProps) {
                             transition={{ delay: 0.8 }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`px-10 py-5 rounded-full font-bold text-xl shadow-2xl transition-all ${content.buttonClass}`}
+                            className={`px-8 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-lg sm:text-xl shadow-2xl transition-all ${content.buttonClass}`}
                         >
                             {content.buttonText}
                         </motion.button>
                     </div>
 
                     {/* CAPA 3: Imagen del doctor/hincha (Derecha) */}
-                    <div className="relative z-30 order-1 lg:order-2 h-[500px] lg:h-[70vh] flex items-end justify-end">
+                    <div className="relative z-30 order-1 lg:order-2 h-[40vh] sm:h-[500px] lg:h-[70vh] flex items-end justify-end">
                         {/* Escudo del equipo (solo en modo hincha) - Detrás de la foto */}
                         {isFanMode && (
                             <motion.div
@@ -169,7 +169,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[700px] lg:h-[700px] z-10"
+                                className="absolute w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] lg:w-[700px] lg:h-[700px] z-10"
                                 style={{
                                     top: '40%',
                                     left: '50%',
@@ -202,7 +202,7 @@ export default function Hero({ isFanMode }: HeroProps) {
                                     ease: "easeInOut"
                                 }
                             }}
-                            className="absolute w-[600px] h-[600px] rounded-full blur-[140px] -z-10"
+                            className="absolute w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full blur-[80px] sm:blur-[140px] -z-10"
                         />
 
                         <AnimatePresence mode="wait">

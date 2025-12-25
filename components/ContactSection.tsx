@@ -120,9 +120,9 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className={`p-12 rounded-3xl shadow-xl max-w-4xl mx-auto ${isFanMode ? 'bg-yellow-500 border-2 border-white' : 'bg-white border border-slate-100'}`}
+                        className={`p-6 sm:p-8 md:p-12 rounded-3xl shadow-xl max-w-4xl mx-auto ${isFanMode ? 'bg-yellow-500 border-2 border-white' : 'bg-white border border-slate-100'}`}
                     >
-                        <h2 className={`text-3xl sm:text-4xl font-bold mb-8 font-montserrat tracking-tight ${isFanMode ? 'text-slate-900' : 'text-slate-900'}`}>
+                        <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-montserrat tracking-tight ${isFanMode ? 'text-slate-900' : 'text-slate-900'}`}>
                             {isFanMode ? '¡AGENDA TU CITA AHORA!' : 'Agenda tu Consulta'}
                         </h2>
 
@@ -132,12 +132,12 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={`inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-all ${isFanMode
+                            className={`inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-bold shadow-lg transition-all w-full sm:w-auto justify-center ${isFanMode
                                 ? 'bg-white text-sky-900 border-2 border-white hover:bg-sky-900 hover:text-white hover:border-sky-900'
                                 : 'bg-blue-50 text-blue-900 border-2 border-blue-600 hover:bg-blue-100'
                                 }`}
                         >
-                            <MessageCircle className="w-6 h-6" />
+                            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                             <span>{isFanMode ? 'Contactar por WhatsApp' : 'Agendar Cita'}</span>
                         </motion.a>
                     </motion.div>
