@@ -82,7 +82,7 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
                         {isFanMode ? 'TU CAMINO A LA VICTORIA' : 'Tu camino hacia la recuperación'}
                     </motion.h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-8 md:gap-6 mt-8 sm:mt-0">
                         {steps.map((step, index) => (
                             <motion.div
                                 key={index}
@@ -90,22 +90,22 @@ export default function ContactSection({ isFanMode }: ContactSectionProps) {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2 }}
-                                className="relative"
+                                className="relative flex flex-col items-center justify-center pt-6 pb-2"
                             >
                                 {/* Número grande */}
-                                <div className={`text-6xl sm:text-7xl md:text-8xl font-bold mb-4 opacity-[0.2] select-none ${isFanMode ? 'text-white/40' : 'text-slate-300'
+                                <div className={`text-6xl sm:text-7xl md:text-8xl font-bold mb-0 absolute top-0 z-0 opacity-[0.15] select-none ${isFanMode ? 'text-white/40' : 'text-slate-400'
                                     }`}>
                                     {step.number}
                                 </div>
 
-                                <div className="absolute top-12 left-0 right-0 text-center">
-                                    <div className="flex justify-center mb-4">
-                                        <step.icon className={`w-10 h-10 ${isFanMode ? 'text-bolivar-gold' : 'text-blue-600'}`} />
+                                <div className="relative z-10 text-center flex flex-col items-center mt-8 sm:mt-10">
+                                    <div className="flex justify-center mb-3 sm:mb-4">
+                                        <step.icon className={`w-10 h-10 sm:w-12 sm:h-12 ${isFanMode ? 'text-bolivar-gold' : 'text-blue-600'}`} />
                                     </div>
-                                    <h3 className={`text-xl font-bold mb-2 ${isFanMode ? 'text-white' : 'text-slate-900'}`}>
+                                    <h3 className={`text-xl sm:text-2xl font-bold mb-2 sm:mb-3 ${isFanMode ? 'text-white' : 'text-slate-900'}`}>
                                         {step.title}
                                     </h3>
-                                    <p className={`text-sm max-w-[200px] mx-auto ${isFanMode ? 'text-white/90' : 'text-slate-700'}`}>
+                                    <p className={`text-sm sm:text-base max-w-[250px] mx-auto leading-relaxed ${isFanMode ? 'text-white/90' : 'text-slate-700'}`}>
                                         {step.description}
                                     </p>
                                 </div>
